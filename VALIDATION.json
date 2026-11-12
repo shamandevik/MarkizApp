@@ -1,0 +1,10 @@
+{
+  "version": "0.4.0",
+  "package": "app.devlens",
+  "build": "passed",
+  "everyday_browser_tests": "passed",
+  "device": "V2434",
+  "device_install": "passed",
+  "mass_release_ready": false,
+  "limits": "See MarkizApp-changes.md and MarkizApp-roadmap.md"
+}

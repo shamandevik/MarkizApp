@@ -1,0 +1,10 @@
+{
+  "name": "devlens-ui-tests",
+  "private": true,
+  "scripts": {
+    "test": "node tests/check.cjs && node tests/integration.cjs && node tests/everyday.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.65.0"
+  }
+}
