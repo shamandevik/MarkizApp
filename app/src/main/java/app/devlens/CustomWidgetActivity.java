@@ -1,7 +1,0 @@
-package app.devlens;
-import android.app.*;import android.os.*;import android.webkit.*;import java.io.*;
-public class CustomWidgetActivity extends Activity{
- WebView view;
- public void onCreate(Bundle b){super.onCreate(b);view=new WebView(this);setContentView(view);view.getSettings().setJavaScriptEnabled(true);view.getSettings().setAllowFileAccess(false);view.getSettings().setAllowContentAccess(false);view.setWebViewClient(new WebViewClient(){public boolean shouldOverrideUrlLoading(WebView v,WebResourceRequest r){return true;}public WebResourceResponse shouldInterceptRequest(WebView v,WebResourceRequest r){return new WebResourceResponse("text/plain","UTF-8",new ByteArrayInputStream(new byte[0]));}});String html="<meta name='viewport' content='width=device-width,initial-scale=1'><style>body{background:#141c26;color:white;font-family:system-ui}"+getIntent().getStringExtra("css")+"</style>"+getIntent().getStringExtra("html");view.loadDataWithBaseURL("https://widget.invalid/",html,"text/html","UTF-8",null);view.setWebViewClient(new WebViewClient(){public void onPageFinished(WebView v,String url){v.evaluateJavascript(getIntent().getStringExtra("js"),null);}public boolean shouldOverrideUrlLoading(WebView v,WebResourceRequest r){return true;}public WebResourceResponse shouldInterceptRequest(WebView v,WebResourceRequest r){return new WebResourceResponse("text/plain","UTF-8",new ByteArrayInputStream(new byte[0]));}});}
- public void onDestroy(){view.destroy();super.onDestroy();}
-}
